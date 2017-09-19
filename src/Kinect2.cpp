@@ -1164,8 +1164,9 @@ void Device::start()
 
 	uint8_t sensorIsOpen = isSensorOpen();
 	for ( size_t frameType = (size_t)FrameType_Audio; frameType < (size_t)FrameType_InfraredLongExposure; ++frameType ) {
-		mProcesses[ (FrameType)frameType ]	= Process();
-		Process& process					= mProcesses.at( (FrameType)frameType );
+		//mProcesses[ (FrameType)frameType ]	= Process();
+		//Process& process					= mProcesses.at( (FrameType)frameType );
+		Process& process = mProcesses[(FrameType)frameType];
 		switch( (FrameType)frameType ) {
 		case FrameType_Audio:
 			process.mThreadCallback = [ & ]()
